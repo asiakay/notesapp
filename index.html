@@ -17,10 +17,13 @@
     </div>
 </body>
 
+
+
 <script>
 var textElement = document.getElementById("note")
-
-function saveNote() {
+// saving note to local Storage
+const saveNote = (notes) => {
+    localStorage.setItem('note', JSON.stringify(note));
     
 }
 </script>
