@@ -36,7 +36,7 @@ function saveNote() {
     // gives a note item in the array an id to be indexed
     noteObject[id] = textElement.value
     // saving note to local Storage makes sure it's saved as a string
-    localStorage.setItem('note', JSON.stringify(note))
+    localStorage.setItem('note', JSON.stringify(noteObject))
     alert("Note Saved")
 }
 

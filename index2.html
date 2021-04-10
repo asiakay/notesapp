@@ -15,16 +15,17 @@
 
 
 <script>
-    // why is this function in parentheses?
+    // why is this function in parentheses
 (function getNotes(){
-    let notes = getExistingNotes();
+    let notes = getExistingNotes(); 
     let notesArray = Object.values(notes)
-    let orderedList = document.querySelector("#notes-list")
+    // changing to querySelector from getElementById
+    let orderedList = document.getElementById("notes-list")
     notesArray.forEach(note => {
-        let listItem = document.createElement("li");
-        listItem.innerHTML = note;
-        orderedList.appendChild(listItem);
-    });
-})();
+        let listItem = document.createElement("li")
+        listItem.innerHTML = note
+        orderedList.appendChild(listItem)
+    })
+})()
 
 </script>
