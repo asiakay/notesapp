@@ -15,16 +15,16 @@
 
 
 <script>
-    // why is this function in parentheses
+
 (function getNotes(){
-    let notes = getExistingNotes(); 
-    let notesArray = Object.values(notes)
-    // changing to querySelector from getElementById
-    let orderedList = document.getElementById("notes-list")
-    notesArray.forEach(note => {
+    let notes = getExistingNotes();  // turns the function into a variable
+    let notesArray = Object.values(notes) // turns the getExistingNotes()/notes variable into an array of objects 
+  
+    let orderedList = document.getElementById("notes-list") // represents the list of notes, tells browser to display as an ordered list
+    notesArray.forEach(note => { // forEach assigns an html tag (li) foreach list item in the array of note objects
         let listItem = document.createElement("li")
-        listItem.innerHTML = note
-        orderedList.appendChild(listItem)
+        listItem.innerHTML = note // innerHTML represents the HTML content of an element , in this case the list item which is creating the line items in our ordered list 
+        orderedList.appendChild(listItem) // append child adds an item onto a list
     })
 })()
 
