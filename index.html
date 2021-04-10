@@ -20,22 +20,33 @@
 
 
 <script>
-    // textElement represents text written in id named "note"
+    // textElement = text written in id named "note"
+    // document = the browser window
+    // getElementById = telling the browser you want to access the id 
+    // with the name "note", in this case, the textarea we are writing 
+    // the note into
 var textElement = document.getElementById("note")
-// logic for alerting about an empty note
+// function saveNote() is where we're putting instructions for what 
+// to do if the the textElement variable we defined is empty 
+// we're saying we want to return a pop up alert saying the "text is empty"  
 function saveNote() {
     if (textElement.value == "") {
         return alert ("text is empty")    
-    // should there be an else statement here that gives instructions to save note?
     }   
+    // const id represents/points to the function getNoteId()
+    // let noteObject represents/points to the function getExistingNotes() 
     const id = getNoteId()
     let noteObject = getExistingNotes()
-    if(!noteObject){
-        noteObject = {}
+    
+    if(!noteObject){ // <= if (!noteObject) means if there's no existing note already, then we're creating the first noteObject
+
+        noteObject = {} // that's why it's empty in the brackets
     }
-    // gives a note item in the array an id to be indexed
-    noteObject[id] = textElement.value
-    // saving note to local Storage makes sure it's saved as a string
+    // noteObject[id] gives a noteObject in the array an id # to be indexed
+    noteObject[id] = textElement.value // <= remember textElement refers to the "note" id. The value is what number note is being saved
+    
+    // localStorage = memory stored in the browser. setItem = giving instructions to save textElement we gave the id name, "note". 
+    // "localStorage.setItem('note', JSON.stringify(noteObject)) makes sure it's saved as a string pointing to the variable noteObject
     localStorage.setItem('note', JSON.stringify(noteObject))
     alert("Note Saved")
 }
